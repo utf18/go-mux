@@ -1,4 +1,4 @@
-#### Sample Project for a gorilla/mux based go rest API with prometheus metrics enabled and soon more stuff like proper logging, more prometheus metrics and what not.
+#### Sample Project for a gorilla/mux based go rest API with prometheus metrics enabled and simple request logging.
 
 #### the main app is a sample golang application with a gorilla/mux based router.
 port 8080 is used and you can build it yourself with:
@@ -13,8 +13,6 @@ after this you should be able to start it with:
 
 and test it with
 `curl localhost:8080`
-
-you should see this output:  `Gorilla!`
 
 or for the metrics endpoint:
 `curl localhost:8080/metrics`
