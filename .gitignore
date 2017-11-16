@@ -15,3 +15,5 @@
 _tmp
 .DS_Store
 mux
+debug
+go-mux-example
