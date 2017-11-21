@@ -40,6 +40,9 @@ you can use the util/configure-grafana-datasource.sh script to configure the pro
 After this you only have to import the dashboards in the *grafana* folder.
 The mux-dashboard.json is a very basic dashboard which displays the go_threads of both prometheus and mux.
 
+i added a simple prometheus gauge in the gauge.go file to show how to get updated metrics while the http server is running and blocking.
+
+I guess i cloud have used a middleware to take care of this, but since this repo is solely based for my learnings, i will stay with this.
 
 
 ### Contributing
