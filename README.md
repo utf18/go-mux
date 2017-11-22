@@ -48,4 +48,4 @@ I guess i cloud have used a middleware to take care of this, but since this repo
 ### Contributing
 
 All patches are welcome!
-If you find something is missing or broken please file an issue
+If you find something is missing or broken send me a PR or file an issue.

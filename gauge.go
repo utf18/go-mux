@@ -20,6 +20,6 @@ func ExampleGauge() {
 	for range time.Tick(time.Second * 5) {
 
 		// increment incValue by 1 every 5 seconds
-		incValue.Inc()
+		go incValue.Inc()
 	}
 }

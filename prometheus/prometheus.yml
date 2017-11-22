@@ -17,4 +17,4 @@ scrape_configs:
 
     - job_name: 'mux'
       static_configs:
-          - targets: ['go-mux-example:8080']
+          - targets: ['mux:8080']
