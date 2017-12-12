@@ -1,5 +1,7 @@
 #### Sample Project for a gorilla/mux based go rest API with prometheus metrics enabled and simple request logging.
 
+[![Build Status](https://travis-ci.org/hendrikstill/go-mux.svg?branch=master)](https://travis-ci.org/hendrikstill/go-mux)
+
 #### the main app is a sample golang application with a gorilla/mux based router.
 port 8080 is used and you can build it yourself with:
 `go get -d`
