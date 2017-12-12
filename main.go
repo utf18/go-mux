@@ -4,6 +4,7 @@
 package main
 
 import (
+	"github.com/gorilla/handlers"
 	"net/http"
 	"os"
 
@@ -41,7 +42,10 @@ func main() {
 	// start a goroutine which start the polling for the metrics endpoint
 	go ExampleGauge(prometheusRegistry)
 
+	// wrap a logger around the mux server
+	loggedRouter := handlers.LoggingHandler(os.Stdout, r)
+
 	// Bind to a port and pass our loggedRouter in
-	log.Fatal(http.ListenAndServe(":8080", r))
+	log.Fatal(http.ListenAndServe(":8080", loggedRouter))
 
 }
