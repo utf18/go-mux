@@ -19,6 +19,6 @@ services:
       - prometheus-server:prometheus
 
   mux:
-    image: benst/mux:latest
+    image: benst/go-mux:latest
     ports:
       - 8080:8080
