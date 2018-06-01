@@ -46,8 +46,6 @@ The mux-dashboard.json is a very basic dashboard which displays the go_threads o
 
 i added a simple prometheus gauge in the gauge.go file to show how to get updated metrics while the http server is running and blocking.
 
-I guess i could have used a middleware to take care of this, but since this repo is solely based for my learnings, i will stay with this.
-
 
 ### Contributing
 

@@ -4,9 +4,10 @@
 package main
 
 import (
-	"github.com/gorilla/handlers"
 	"net/http"
 	"os"
+
+	"github.com/gorilla/handlers"
 
 	"github.com/gorilla/mux"
 	"github.com/prometheus/client_golang/prometheus"
@@ -16,7 +17,6 @@ import (
 
 func main() {
 	var log = logrus.New()
-	prometheusRegistry := prometheus.NewRegistry()
 
 	// set the log output
 	log.Out = os.Stdout
@@ -37,15 +37,17 @@ func main() {
 	r.HandleFunc("/", YourHandler)
 
 	// exposes /metrics endpoint with standard golang metrics used by prometheus
-	r.Handle("/metrics", promhttp.HandlerFor(prometheusRegistry, promhttp.HandlerOpts{}))
+	r.Handle("/metrics", promhttp.Handler())
 
 	// start a goroutine which start the polling for the metrics endpoint
-	go ExampleGauge(prometheusRegistry)
+	ExampleGauge()
 
 	// wrap a logger around the mux server
-	loggedRouter := handlers.LoggingHandler(os.Stdout, r)
+	logWrapper := handlers.LoggingHandler(os.Stdout, r)
+
+	metricsWrapper := prometheus.InstrumentHandler("metrics", logWrapper)
 
 	// Bind to a port and pass our loggedRouter in
-	log.Fatal(http.ListenAndServe(":8080", loggedRouter))
+	log.Fatal(http.ListenAndServe(":8080", metricsWrapper))
 
 }
