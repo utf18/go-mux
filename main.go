@@ -40,7 +40,7 @@ func main() {
 	r.Handle("/metrics", promhttp.Handler())
 
 	// start a goroutine which start the polling for the metrics endpoint
-	ExampleGauge()
+	SimpleGauge()
 
 	// wrap a logger around the mux server
 	logWrapper := handlers.LoggingHandler(os.Stdout, r)
