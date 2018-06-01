@@ -16,4 +16,4 @@ _tmp
 .DS_Store
 mux
 debug
-.idea
+go-mux
